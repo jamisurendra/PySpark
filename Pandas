@@ -1,0 +1,35 @@
+𝐁𝐚𝐬𝐢𝐜𝐬 𝐨𝐟 𝐏𝐚𝐧𝐝𝐚𝐬
+
+1. What is Pandas and why is it used in Python?
+2. How do you install Pandas in Python?
+3. Explain the primary data structures in Pandas.
+4. How do you create a Pandas DataFrame from a Python dictionary?
+5. What is the purpose of the head() and tail() functions in Pandas?
+6. Differentiate between a DataFrame and a Series in Pandas.
+7. How do you check for missing values in a DataFrame?
+8. Explain the purpose of the shape attribute in Pandas.
+9. How can you rename columns in a Pandas DataFrame?
+10. What is the role of the dtype parameter in Pandas?
+
+𝐈𝐧𝐝𝐞𝐱𝐢𝐧𝐠 𝐚𝐧𝐝 𝐒𝐞𝐥𝐞𝐜𝐭𝐢𝐧𝐠 𝐃𝐚𝐭𝐚
+
+11. Explain the difference between loc and iloc in Pandas. 12. How do you select specific columns from a DataFrame?
+13. What is boolean indexing, and how is it used in Pandas?
+14. How do you drop columns and rows from a DataFrame in Pandas?
+15. Explain the purpose of the isin() function in Pandas.
+16. How can you set a specific column as the index in a DataFrame? 17. What is the purpose of the at and iat accessors in Pandas?
+18. How do you reset the index of a DataFrame?
+19. Explain the role of the isin() function in Pandas.
+20. How can you filter rows based on multiple conditions in Pandas?
+
+𝐃𝐚𝐭𝐚 𝐂𝐥𝐞𝐚𝐧𝐢𝐧𝐠 𝐚𝐧𝐝 𝐓𝐫𝐚𝐧𝐬𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧
+
+21. How do you handle missing values in a DataFrame?
+22. Explain the purpose of the drop_duplicates() function in Pandas. 23. What is the purpose of the apply() function in Pandas?
+24. How do you convert data types in a Pandas DataFrame?
+25. Explain the purpose of the groupby() function in Pandas.
+26. How do you pivot a DataFrame in Pandas?
+27. What is the merge() function, and how is it used in Pandas?
+28. How do you handle outliers in a DataFrame?
+29. Explain the purpose of the map() function in Pandas.
+30. How do you perform one-hot encoding in Pandas?
