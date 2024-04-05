@@ -1,0 +1,28 @@
+1.	What is Azure Data Factory (ADF) and its key components?
+Answer: Azure Data Factory (ADF) is a cloud-based data integration service that allows you to create, schedule, and manage data pipelines for ingesting, transforming, and loading data across various data sources and destinations. Key components of ADF include datasets, linked services, pipelines, activities, triggers, and integration runtimes.
+2.	Explain the difference between datasets and linked services in Azure Data Factory.
+Answer:
+•	Datasets: Datasets represent the structure of data in various data stores such as Azure SQL Database, Azure Blob Storage, or on-premises SQL Server. They define the schema, format, and location of the data.
+•	Linked Services: Linked services define the connection information and authentication details required to connect to external data stores such as Azure SQL Database, Azure Blob Storage, or on-premises sources.
+3.	What is a pipeline in Azure Data Factory?
+Answer: A pipeline in Azure Data Factory is a logical grouping of activities that performs a series of data transformation and movement tasks. It defines the workflow for orchestrating the execution of activities to move and process data from source to destination.
+4.	How do you monitor and manage Azure Data Factory pipelines?
+Answer: Azure Data Factory provides monitoring and management capabilities through Azure Monitor and Azure Data Factory UI. You can monitor pipeline runs, monitor activity runs, view execution history, troubleshoot failures, and manage triggers and schedules using these tools.
+5.	Explain the concept of triggers in Azure Data Factory.
+Answer: Triggers in Azure Data Factory are used to automate the execution of pipelines based on a predefined schedule or event. There are different types of triggers such as schedule triggers, tumbling window triggers, and event-based triggers. Schedule triggers execute pipelines at specified time intervals, tumbling window triggers execute pipelines based on time windows, and event-based triggers execute pipelines in response to events such as file arrival or HTTP requests.
+6.	What are integration runtimes in Azure Data Factory?
+Answer: Integration runtimes in Azure Data Factory provide the compute infrastructure needed to execute data movement and data transformation activities within data pipelines. There are different types of integration runtimes such as Azure Integration Runtime, Self-hosted Integration Runtime, and Azure-SSIS Integration Runtime, each catering to different connectivity and compute requirements.
+7.	How do you handle data partitioning and parallelism in Azure Data Factory?
+Answer: Azure Data Factory supports partitioning and parallelism through techniques such as data partitioning, parallel execution of activities, and configuring parallelism settings in data movement activities. By partitioning data and enabling parallel execution, you can optimize performance and increase throughput when processing large volumes of data.
+8.	Explain the concept of data flows in Azure Data Factory and how they differ from traditional ETL processes.
+Answer: Data flows in Azure Data Factory provide a visual interface for building data transformation logic using a drag-and-drop interface. They enable users to define data transformation logic using a wide range of transformation functions and expressions without writing code. Unlike traditional ETL processes, which require writing custom scripts or code, data flows simplify the process of building and managing complex data transformation logic.
+9.	How do you handle schema drift in Azure Data Factory?
+Answer: Schema drift refers to changes in the schema of source or destination datasets over time. Azure Data Factory provides schema drift handling capabilities through dynamic schema mapping, which allows the pipeline to dynamically adjust to changes in the schema during runtime. By enabling schema drift handling in data copy activities, you can ensure that the pipeline can handle changes in the schema of source or destination datasets without failing.
+10.	What are some best practices for optimizing performance in Azure Data Factory?
+Answer: Some best practices for optimizing performance in Azure Data Factory include:
+•	Partitioning data to enable parallel execution.
+•	Using appropriate integration runtimes for data movement and data transformation activities.
+•	Avoiding unnecessary data copying and transformations.
+•	Leveraging data compression and indexing where applicable.
+•	Monitoring and optimizing data flows to minimize resource consumption.
+•	Using incremental data loading techniques to minimize data transfer and processing.
