@@ -1,1 +1,5 @@
-SparkSession is the recommended way to work with Spark data structures such as DataFrames and Datasets, as it provides a more consistent and simpler interface. SparkContext is still useful for working with RDDs and low-level Spark features, but it can also be accessed through SparkSession if needed.
+SparkSession is the recommended way to work with Spark data structures such as DataFrames and Datasets,
+as it provides a more consistent and simpler interface. 
+
+SparkContext is still useful for working with RDDs and low-level Spark features, 
+but it can also be accessed through SparkSession if needed.
