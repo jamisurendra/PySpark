@@ -29,4 +29,7 @@ WHERE
 -- Set the end_date of the previous version of the updated rows
 UPDATE scd2_table AS t
 SET end_date = (SELECT MIN(start_date) - INTERVAL 1 DAY
-                FROM
+                FROM scd2_table
+                WHERE id = t.id
+                AND start_date > t.start_date)
+WHERE is_current = true;
