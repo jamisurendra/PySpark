@@ -1,0 +1,71 @@
+Q) remove duplicate records from  employee table
+A) DELETE FROM employee
+WHERE id NOT IN (
+    SELECT MIN(id)
+    FROM employee
+    GROUP BY column1, column2, ...
+);
+
+Q) write sql query to extract department wise 3rd highest salary?
+A) SELECT department, salary
+FROM (
+    SELECT department, salary, ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS rn
+    FROM employee
+) AS subquery
+WHERE rn = 3;
+
+Q) Write the script to load the data in SCD 2 tables
+A) -- Create the SCD 2 table
+CREATE TABLE scd2_table (
+    id INT PRIMARY KEY,
+    attribute1 VARCHAR(50),
+    attribute2 VARCHAR(50),
+    start_date DATE,
+    end_date DATE,
+    is_current BOOLEAN
+);
+
+-- Insert or update the data in the SCD 2 table
+INSERT INTO scd2_table (id, attribute1, attribute2, start_date, end_date, is_current)
+SELECT 
+    source.id,
+    source.attribute1,
+    source.attribute2,
+    source.start_date,
+    source.end_date,
+    CASE
+        WHEN scd_table.end_date IS NULL THEN true
+        ELSE false
+    END
+FROM source_table AS source
+LEFT JOIN scd2_table AS scd_table
+    ON source.id = scd_table.id
+WHERE 
+    source.start_date >= scd_table.start_date OR scd_table.start_date IS NULL;
+
+-- Set the end_date of the previous version of the updated rows
+UPDATE scd2_table AS t
+SET end_date = (SELECT MIN(start_date) - INTERVAL 1 DAY
+                FROM scd2_table
+                WHERE id = t.id
+                AND start_date > t.start_date)
+WHERE is_current = true;
+
+Q) insert data into employee table from other table only those records which is not there in employee table and project related question
+A) INSERT INTO employee (id, name, department, salary)
+SELECT t.id, t.name, t.department, t.salary
+FROM other_table t
+LEFT JOIN employee e ON t.id = e.id
+WHERE e.id IS NULL;
+
+Q) what are the different approach to design Data warehouse
+A) There are several approaches to designing a data warehouse, each with its own advantages and considerations. Here are some common approaches:
+Dimensional Modeling: This approach involves organizing data into fact tables and dimension tables. Fact tables contain the metrics or measurements of the business, while dimension tables provide contextual information about the business entities. This approach is widely used and provides flexibility for reporting and analysis.
+Kimball Methodology: The Kimball methodology is a popular dimensional modeling technique. It emphasizes simplicity, conformed dimensions, and star schema designs. It focuses on building data marts for specific business areas and integrating them to create a comprehensive data warehouse.
+Inmon Methodology: The Inmon methodology follows a normalized approach, where data is organized into a third normal form (3NF). It emphasizes building an enterprise-wide data model and integrating multiple data sources into a central data warehouse. This approach supports complex reporting needs and data consistency across the organization.
+Data Vault Modeling: Data Vault Modeling is a hybrid approach that combines elements of normalized and dimensional modeling. It focuses on creating a flexible and scalable data model that allows for historical tracking, easy data integration, and agile development. It is particularly useful for large-scale data warehousing projects.
+Hybrid Approach: Some organizations combine elements from different methodologies to create a hybrid approach that suits their specific needs. This approach may involve a combination of dimensional modeling, normalized modeling, or data vault modeling, depending on the requirements and goals of the data warehouse.
+
+
+what is the benefits of one big table  over data warehouse
+These are some questions which I have handy with me asked in 2nd round of interview
