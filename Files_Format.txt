@@ -1,0 +1,18 @@
+When it comes to CSV file format, it is row-based file format which is good for writing the data and it becomes time consuming when we have to read subset of columns.
+Row based file formats are stored row by row. Though we want to read subset of columns, we end up reading entire data.
+
+JSON is again row-based file format. It is bulkier than CSV file format as it has to store column names in every line for all the columns.
+In case of CSV, there is only one header. JSON format is more like python dictionary where we have key and value pairs and keys are repeating every row.
+JSON takes twice the more space than what CSV takes for same amount of data. If CSV file size is 128 MB, same data in JSON will have size around 280-320 MB.
+
+Parquet is column-based file format. Parquet is very optimised file format and internally it is divided into row groups, column chunks and pages.
+Parquet takes 10% space than what CSV takes. If CSV file has size 128 MB, same data in Parquet will be take in 12-15 MB space for same amount of data.
+As parquet is column-based file formats, it is very easy to read subset of columns in order to skip or prune the data.
+
+ORC is column-based file format. ORC is very optimised for Hive (why I'm still to find? If anyone knows logical answer, please do comment).
+ORC takes 5% space than what CSV takes. If CSV file has size 128 MB, same data in ORC will be take in 6-9 MB space for same amount of data.
+As ORC is column-based file formats, it is very easy to read subset of columns.
+
+AVRO is row-based file format. AVRO is considered very optimised file format when it comes to raw landing layer.
+AVRO takes 30% space than what CSV takes. If CSV file has size 128 MB, same data in AVRO will be take in 30-35 MB space for same amount of data.
+As AVRO is row-based file formats, it is very easy to write. AVRO comes with default compression techniques which increase optimisation level of AVRO as compared to CSV and JSON.
